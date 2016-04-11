@@ -1,0 +1,38 @@
+
+TEXT STATISTICS PROGRAM
+=======================
+
+
+This program computes statistics on text files.
+
+
+REQUIREMENTS
+============
+
+Python 2.7
+
+
+USAGE
+=====
+
+
+To run the program on the command line from root directory use:
+
+python text_stats.py -i <inputfile> [-e <encoding>] [-n <numcores>] [-c <chunksize>]
+
+Alternatly import the compute_stats function in text_stats/main.py, and use:
+
+compute_stats(inputfile, encoding, numcores, chunksize)
+
+To run tests use:
+
+python -m unittest discover text_stats/test
+
+See docstrings for detailed information and usage
+
+
+ABOUT THE CODE
+==============
+
+This programs computes statistics on provided text files by counting the frequency
+of character occurences. Text is broken into chunks and handed to multiprocessing.Pool workers for processing, processing occurs in parallel when numcores argument is greater than one.
